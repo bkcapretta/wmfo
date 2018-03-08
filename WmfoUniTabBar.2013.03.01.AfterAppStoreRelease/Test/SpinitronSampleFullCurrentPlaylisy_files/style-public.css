@@ -1,0 +1,1310 @@
+@charset "US-ASCII";
+
+/*============================================================
+CSS 2.1 style sheet for http://spinitron.com/public/
+Copyright (c) 2002-2009 Spinitron http://spinitron.com.
+
+Users may override these style definitions by adding the GET
+pataremeter 'css' to a link. The parameter value should be a
+URI to a file containing valid css style rules that override
+any or all of those defined here. e.g.
+http://spinitron.com/public/index.php?station=wxyz&css=http://my.server.com/stuff/spinstyle.css
+
+Additionally, if your station admin has set up an alternate
+stylesheet on spinitron, you can activiate it by setting
+css=true, e.g.
+http://spinitron.com/public/index.php?station=wxyz&css=true
+
+For information on customization with user style sheets, station
+members may read the user guide available to logged on users.
+============================================================ */
+
+html, body, div, span, object, iframe, h1, h2, h3, h4, h5,
+h6, p, blockquote, pre, a, abbr, acronym, address, cite, code,
+del, dfn, em, img, ins, kbd, q, samp, strong, sub, sup, tt, var,
+dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table,
+caption, tbody, tfoot, thead, tr, th, td {
+	/* default resets */
+	margin: 0;
+	padding: 0;
+	outline: 0;
+	font-size: 1em;
+	}
+body {
+	/* the HTML body */
+	font-size: 76%;
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	line-height: 1.28em;
+	color: black;
+	background: white;
+	}
+#page {
+	/* a DIV enclosing the entire page */
+	width: 70em;
+	min-width: 760px;
+	margin: 1%;
+	background: white;
+	overflow: hidden;
+	}
+#page.wide {
+	width: 98%;
+	}
+#page.overvis {
+	overflow: visible;
+	}
+/******************************************************************
+*******************************************************************
+SECTION 1
+=========
+styles in this section do not apply to the main page content, only
+to the page, masthead, left nav bar and fotter. so these styles
+can be ignored if you set the ptype GET parameter to d, i or s.
+see the integration page of the user guide for more details.
+*******************************************************************
+******************************************************************/
+
+/*=================================================================
+the #masthead banner and the stuff in it
+=================================================================*/
+
+#masthead {
+	border: 1px solid #600;
+	background: #e7e7e7;
+	padding: 1em 1.5em 0.6em 1.5em;
+	}
+#masthead table {
+	/* table #masthead lays out station ids left and logo right */
+	width: 100%;
+	}
+html.lte7 #masthead table {
+	width: 95%;
+	}
+#masthead td {
+	vertical-align: middle;
+	}
+#mastleft {
+	/* left td in #masthead */
+	padding-bottom: 0.4em;
+	}
+#mastright {
+	/* right td in #masthead */
+	text-align: right;
+	}
+#stationlogo {
+	/* station logo in the masthead, on the right */
+	position: relative;
+	}
+#mastleft img {
+	/* when station id and slogan are iamges */
+	display: block;
+	}
+#mastleft p.stationid {
+	/* when station id is text */
+	font: bold italic 40px/40px "Arial Black", Arial, Helvetica, sans-serif;
+	color: #600;
+	margin-left: -0.1em;
+	}
+#mastleft p.sloganid {
+	/* when station slogan is text */
+	font: normal normal 18px/24px Arial, Helvetica, sans-serif;
+	margin-bottom: 0.2em;
+	}
+#top-nav {
+	/* row of main nav links at bottom of masthead */
+	position: relative;
+	margin: -1em 0 0 1.5em;
+	}
+#top-nav a {
+	/* individual links */
+	line-height: 1.7em;
+	margin-right: 1em;
+	padding: 0.2em 0.6em;
+	color: white;
+	background: #600;
+	text-decoration: none;
+	white-space: nowrap;
+	}
+#top-nav a:hover {
+	/* mouse-over the top-nav links */
+	color: orange;
+	background: #444;
+	}
+#top-nav a.dim,
+#top-nav a.dim:hover {
+	color: white;
+	background: #600;
+	}
+
+html.lte7 .addlayout {
+	height: 1px;
+	}
+
+/*=================================================================
+#middle is a table with one row and two columns for the nav panel
+on the left and the main content on the right
+=================================================================*/
+#middle {
+	margin-top: 1em;
+	}
+#middle.wide {
+	/* #middle's class is "wide" for the program schedule */
+	width: 98%;
+	}
+
+/*============================================================
+#left is the left column of #middle containing the nav panel
+============================================================ */
+#middle.wide #left {
+	width: 14em;
+	}
+#leftdiv {
+	/* a div within #left with a border around the nav */
+	border: 1px solid #600;
+	padding-bottom: 1em;
+	}
+#leftdiv table {
+	margin-left: 1em;
+	margin-right: 1em;
+	}
+#leftdiv p.part {
+	margin: 0.6em 1em 0;
+	}
+#sidebarlogo {
+	/* paragraph with the spinitron logo in the nav  */
+	background: #ddd;
+	padding: 0.4em 1em;
+	text-align: center;
+	}
+#sidebarlogo img {
+	/* spinitron logo image */
+	}
+#left table.cal {
+	/* table containing the canendar */
+	margin-top: 1em;
+	width: 12em;
+	font-size: 0.9em;
+	}
+#left table.cal td {
+	/* table cells within the calendar */
+	text-align: center;
+	padding: 0;
+	}
+#left table.cal th.ralign {
+	/* table cells with arrows in them */
+	text-align: right;
+	}
+#left table.cal th.lalign {
+	/* table cells with arrows in them */
+	text-align: left;
+	}
+#findtext {
+	/* the search input */
+	border: 1px solid #600;
+	width: 9.9em;
+	margin: 0;
+	font-size: 0.95em;
+	}
+#left input,
+#left select {
+	/* all three search form elements */
+	margin: 0.2em 0;
+	}
+
+/*============================================================
+#merchpanel is the merchandise panel below the nav panel
+============================================================ */
+
+span.buyit {
+	}
+
+a:focus {
+	outline: none;
+	border: none;
+	}
+a.merch, span.buyit {
+	font-size: 0.94em;
+	margin-left: 0.5em;
+	padding: 0em 0.2em;
+	text-decoration: none;
+	white-space: nowrap;
+	}
+span.buyit {
+	margin-left: 0.2em;
+	}
+a.merch:link, a.merch:visited, span.buyit {
+	color: #600;
+	background: transparent;
+	}
+a.merch:active, a.merch:hover {
+	color: black;
+	background: #ddd;
+	}
+p.plrow a.merch, span.buyit {
+	outline: 1px solid #999;
+	}
+p.plrow a.merch:link,
+p.plrow a.merch:visited,
+p.plrow a.merch:active,
+span.buyit {
+	background: #e7e7e7;
+	}
+p.plrow a.merch:hover {
+	background: orange;
+	}
+p.plhead a.merch {
+	font-size: 0.75em;
+	}
+#merchpanel p.more-link {
+	margin: 0 0 0.4em 0.4em;
+	}
+p.more-link a.merch {
+	background: transparent;
+	text-decoration: underline;
+	white-space: normal;
+	margin: 0;
+	padding: 0;
+	}
+#merchpanel {
+	margin-top: 1em;
+	border: 1px solid #600;
+	}
+#merchpanel.ptyped {
+	float: right;
+	width: auto;
+	margin-right: 0.5em;
+	margin-bottom: 1em;
+	background-color: white;
+	}
+#merchpanel.ptyped,
+#merchpanel.ptyped #slot1,
+#merchpanel.ptyped #slot2 {
+	z-index: 50;
+	}
+#right h2.merch-head {
+	padding: 0.2em 0.5em 0.3em;
+	}
+#right h2.merch-head a.merch {
+	background: transparent;
+	text-decoration: none;
+	}
+#right h2.merch-head a.merch:hover {
+	color: red;
+	}
+#merchpanel h2.merch-head {
+	font-size: 1.1em;
+	background: #ddd;
+	padding: 0.2em 0.3em 0.3em;
+	border-top: 1px solid #600;
+	margin-top: -1px;
+	}
+#merchpanel h2.merch-head img {
+	margin-left: 0.4em;
+	}
+#merchpanel p.sorry {
+	margin: 0.4em 0.4em 0.8em;
+	}
+#merchpanel table.merch-disks {
+	table-layout: fixed;
+	margin: 0.2em 1em 0 0.2em;
+	width: 12em;
+	}
+#merchpanel table.onecol {
+	width: 12em;
+	}
+#merchpanel table.twocol {
+	width: 24em;
+	}
+#merchpanel table.fourcol {
+	width: 53.5em;
+	}
+#merchpanel td.merch-disk {
+	padding: 0 0.3em 0.3em;
+	vertical-align: top;
+	}
+#merchpanel div.merch-art {
+	position: relative;
+	float: left;
+	padding: 2px 3px 0 0;
+	}
+#merchpanel img.merch-disk {
+	border: 1px solid #999;
+	width: 60px;
+	height: 60px;
+	background: #ddd;
+	}
+#merchpanel .merch-play {
+	position: absolute;
+	bottom: 1px;
+	right: 4px;
+	}
+#merchpanel p {
+	margin: 0;
+	font-size: 0.92em;
+	}
+#merchpanel p.merch-aname {
+	font-weight: bold;
+	color: black;
+	margin-top: 0;
+	}
+#merchpanel span.merch-dname {
+	font-weight: bold;
+	color: #400;
+	}
+#merchpanel p.merch-songlist {
+	}
+#merchpanel span.merch-sname {
+	color: #444;
+	font-size: 0.92em;
+	}
+#merchpanel span.merch-sname-match {
+	font-size: 0.92em;
+	color: black;
+	font-weight: bold;
+	}
+#merchpanel table.merch-disks a {
+	color: inherit;
+	}
+
+/*=================================================================
+the #footer with Spinitron legal and commercial info
+=================================================================*/
+#footer {
+	/* a div containing the footer */
+	width: 100%;
+	margin-top: 2em;
+	border-top: 1px solid #999;
+	color: #666;
+	}
+#footer p {
+	/* one paragraph for all the footer text */
+	margin-top: 0.5em;
+	font-size: 0.85em;
+	}
+
+/******************************************************************
+*******************************************************************
+SECTION 2
+=========
+styles below apply to the main content of the page in the #right
+<TD> of the #middle <TABLE>.
+
+styles above apply only to the rest of the page. so styles above
+can be ignored if you set the ptype GET parameter to d, i or s.
+see the integration page of the user guide for more details.
+
+however, some styles in this section may apply to elements outside
+the main content.
+*******************************************************************
+******************************************************************/
+
+/*=================================================================
+#right is a table cell in #middle containing the main page content
+=================================================================*/
+#right {
+	padding-left: 1em;
+	overflow: visible;
+	width: 100%;
+	}
+
+/*=================================================================
+general default styles -- changing these may affect element outside
+of #right.
+=================================================================*/
+a {
+	/* links */
+	color: #400;
+	text-decoration: underline;
+	}
+a:hover {
+	/* mouse over links */
+	color: #a00;
+	}
+a img {
+	border: none;
+	}
+h1 {
+	/* headings */
+	font-family: Arial, Helvetica, Verdana, sans-serif;
+	font-size: 1.4em;
+	font-weight: normal;
+	background: #e7e7e7;
+	color: #400;
+	}
+h2 {
+	/* sub-headings */
+	color: #400;
+	font-size: 1.2em;
+	font-weight: normal;
+	}
+p {
+	/* paragraphs */
+	line-height: 1.28em;
+	}
+.lead {
+	/* adds 1em leading to any element */
+	margin-top: 1em;
+	}
+.leadhalf {
+	/* adds half em leading to any element */
+	margin-top: 0.5em;
+	}
+b {
+	/* bold text */
+	font-weight: bold;
+	color: #222;
+	}
+ul {
+	/* bullet lists */
+	list-style: disc inside;
+	margin: 1em 0 0 0;
+	font-weight: bold;
+	}
+li {
+	/* bullet items */
+	text-indent: 0.4em;
+	font-weight: normal;
+	}
+td {
+	/* tabel cell contents aligned at the top */
+	vertical-align: top;
+	}
+.ahem {
+	/* used to hide things. override at your peril */
+	display: none;
+	}
+small {
+	/* small is an html tag */
+	color: #444;
+	background: inherit;
+	}
+
+p.plhead {
+	/* heading for a playlist or other pages */
+	font-size: 1.4em;
+	}
+p.plheadsub {
+	/* sub-heading for same */
+	margin-top: 0.3em;
+	text-transform: uppercase;
+	}
+p.plheadsub.lead {
+	/* adds leading to same */
+	margin-top: 1em;
+	}
+p.plnotes1,
+p.plnotes2 {
+	/* notes under these headings before the data */
+	margin: 0;
+	font-size: 0.95em;
+	}
+p.plnotes2 {
+	/* adds margin before data tables/lists */
+	margin-bottom: 0.5em;
+	}
+.indent {
+	/* indents any element */
+	margin-left: 1.5em;
+	}
+p.showimg {
+	float: right;
+	margin: 0 0 1em 2em;
+	}
+p.showimg img {
+	border: 1px solid #ccc;
+	}
+p.djimg {
+	float: left;
+	margin-right: 0.6em;
+	}
+.leadpad {
+	/* .lead using padding. clears a floating dj image */
+	padding-top: 0.75em;
+	clear: left;
+	}
+.infoblock {
+	/* a block in which DJ info and images are displayed */
+	margin-top: 1em;
+	}
+html.ie6 div.infoblock {
+	height: 1%;
+	width: 54em;
+	}
+
+.infoblock.current {
+	margin: 0 0 1.5em 0;
+	padding-bottom: 3em;
+	border-bottom: 1px solid #ccc;
+	}
+.infoblock span {
+	/* spans a DJ img with adjacent name/link */
+	display: inline-block;
+	border: 1px solid #ccc;
+	max-width: 14em;
+	margin-right: 0.6em;
+	margin-bottom: 0.5em;
+	padding-right: 0.2em;
+	background: #f7f7f7;
+	text-decoration: inherit;
+	}
+a.djlink.nou {
+	text-decoration: none;
+	}
+.infoblock img {
+	/* a DJ image */
+	margin-right: 0.3em;
+	border: 1px solid #ccc;
+	}
+.infoblock span img {
+	float: left;
+	border: none;
+	border-right: 1px solid #ccc;
+	background: white;
+	}
+.infoblock * {
+	/* makes DJ images top align with text to the right */
+	vertical-align: top;
+	}
+.infoblock a.special {
+	/* DJ name/links without img on show page */
+	padding-right: 0.6em;
+	}
+
+/*	table.pl -- used for tables of various kinds of info */
+table.pl {
+	margin: 1em 0 0 0;
+	border: 1px solid #ccc;
+	border-collapse: collapse;
+	}
+table.pl th,
+table.pl td {
+	/* heading and content cells */
+	padding: 0.2em 0.5em;
+	border: 1px solid #ccc;
+	}
+table.pl th {
+	/* heading cells */
+	color: black;
+	background: #e7e7e7;
+	}
+
+/* lists of stations, playlists etc. */
+p.stationrow {
+	/* a row in the list  */
+	margin: 0.6em 1em 0 0;
+	}
+p.plrow,
+p.pltime {
+	/* paras within a playlist or a table of playlists */
+	margin: 0.2em;
+	}
+a.arrowpllink {
+	/* =>Playlist links */
+	font-style: italic;
+	text-decoration: none;
+	padding-left: 1em;
+	white-space: nowrap; /* probably won't work */
+	}
+#pltable {
+	/* table listing a dj or show's logged playlists */
+	border: none;
+	clear: both;
+	}
+#pltable td {
+	/* cells within same */
+	border: none;
+	border-top: 1px solid #600;
+	background: white;
+	padding-right: 1em;
+	}
+#pltable td.x {
+	/* cells within same that don't have a line above */
+	border-top: none;
+	}
+#pltable a {
+	/* links within same */
+	text-decoration: none;
+	}
+#feeds {
+	width: inherit;
+	max-width: 13em;
+	}
+#feeds a {
+	display: block;
+	text-indent: -15px;
+	margin: 0.5em 0 0.5em 15px;
+	line-height: 1.25em;
+	font-size: 91%;
+	text-decoration: none;
+	/*color: #803516;*/
+	}
+#feeds img {
+	margin: 0 0 -3px 0;
+	}
+#feeds span {
+	text-decoration: underline;
+	}
+label {
+	white-space: nowrap;
+	}
+
+/*============================================================
+music database browser styles
+============================================================ */
+
+/*	#dbbrowser is the big 5-column table of artist, disk, label names. */
+#dbbrowser p {
+	/* each artist, disk, label name is in a p */
+	margin: 0 0 0 0.5em;
+	text-indent: -0.5em;
+	font-size: 0.8em;
+	/*word-break: break-all;*/
+	word-wrap: break-word;
+	}
+#dbbrowser a,
+#dbbrowser a:visited {
+	/* links in the same */
+	text-decoration: none;
+	color: black;
+	background: inherit;
+	font-weight: normal;
+	outline: none;
+	}
+#dbbrowser a:hover {
+	/* mouse over links in the same */
+	color: inherit;
+	background: #eeb;
+	}
+
+/*	user comments styles displaed on DB item details pages */
+div.comment-section {
+	/* the comments section */
+	margin: 2em 2em 0 0;
+	}
+p.comment-head {
+	/* heading text for the comment */
+	font-size: 1em;
+	font-weight: normal;
+	border-bottom: 1px solid #666;
+	margin-bottom: 0.4em;
+	}
+div.comment {
+	/* one comment block */
+	padding-bottom: 0.8em;
+	padding-top: 0.4em;
+	border-bottom: 1px dotted #999;
+	}
+div.comment p.comment-post {
+	/* comment info */
+	font-style: italic;
+	}
+div.comment p {
+	/* paragraps of comment text */
+	background: inherit;
+	color: black;
+	margin-top: 0.4em;
+	}
+
+/*============================================================
+the shedule
+take care here. the widths and heights in % should be left
+alone. the grid is layed out by percents of the size of the
+envlosling #bigscheddiv, height of which you can override.
+#middle's class is "wide" for the program schedule to make
+it as wide as the browser viewport can take
+============================================================ */
+#catselector a {
+	/* links in the show category selector above the schedule */
+	}
+#catselector a.hilite {
+	/* javascript appends 'hilite' to a link's classname when the user clicks it */
+	color: black;
+	background: #fc8;
+	}
+#bigscheddiv {
+	/* div enclosing the schedule */
+	position: relative;
+	width: 100%;
+	min-width: 40em; /* min-width doesn't work in MS-IE6. sorry */
+	height: 80em;
+	/* the block that defines the size of the schedule therefore also the elements within */
+	}
+div.schedshow,
+div.schedbg0,
+div.schedbg1,
+div.schedday {
+	/* boxes in the schedule are absolutely positioned */
+	/* block elements within the schedule */
+	position: absolute;
+	border: none;
+	}
+div.schedshow {
+	/*  box for one show in the schedule. width, top and left property values 
+		are set by the script as it generates the schedule */
+	background: #ddd;
+	border: 1px solid #600;
+	text-align: center;
+	line-height: 1.2;
+	overflow: hidden;
+	}
+div.schedshow.hilite {
+	/* 'hilite' is dynamically appended to applicable blocks' classname  
+		when the user selects a show category */
+	background: #fc8;
+	}
+div.schedshow p {
+	/* para within a show box */
+	font-size: 0.85em;
+	padding: 0.2em 0.1em;
+	margin: 0;
+	word-wrap: break-word;
+	}
+div.schedshow a {
+	/* the first link within a show box */
+	text-decoration: none;
+	color: #700;
+	font-weight: normal;
+	outline: none;
+	}
+div.schedshow span a {
+	/* the other link within a show box */
+	background: transparent;
+	color: black;
+	}
+div.schedshow a:hover {
+	/* links in the show boxes */
+	background: #eeb;
+	}
+div.schedday {
+	/* days of the week at the top of the grid */
+	width: 13%;
+	padding-top: 0.4em;
+	text-align: center;
+	}
+div.schedbg0,
+div.schedbg1 {
+	/* short wide background boxes for hours of the day */
+	/* allows different styles for alternating rows. not currently used by
+	   default but it's available. property 'top' is set by the script */
+	background: white;
+	border: 1px solid #aaa;
+	left: 3%;
+	width: 94%;
+	}
+div.schedbg0 p,
+div.schedbg1 p {
+	/* hour of the day labels  */
+	position: absolute;
+	top: -0.7em;
+	font-size: 0.85em;
+	background: transparent;
+	padding: 0;
+	}
+p.hourl {
+	/* hour labels on the left */
+	text-align: right;
+	right: 100.5%;
+	}
+p.hourr {
+	/* hour labels on the right */
+	text-align: left;
+	left: 100.5%;
+	}
+
+/* list schedule */
+
+#ScheduleColumns td.scheduleColumn.left {
+	padding-right: 1em;
+	}
+#ScheduleColumns td.scheduleColumn.right {
+	padding-left: 1em;
+	}
+td.scheduleColumn {
+	max-width: 50%;
+	}
+table.schedule {
+	margin: 1em 0 0 0;
+	border-collapse: collapse;
+	}
+table.schedule td {
+	padding: 0.1em 0;
+	border-top: 1px solid #ddd3cc;
+	}
+table.schedule td.weekday {
+	font-size: 100%;
+	font-weight: bold;
+	padding: 0.2em 0.5em 0.2em 0;
+	}
+table.schedule td.time {
+	padding: 0.1em 0.3em 0.1em 0;
+	}
+table.schedule td.descr:hover {
+	cursor: pointer;
+	}
+table.schedule td.x {
+	padding: 0 0.5em;
+	border-top: none;
+	}
+table.schedule div.showdescr {
+	display: none;
+	}
+table.schedule div.showdescr.read {
+	display: block;
+	position: absolute;
+	z-index: 10;
+	width: 25em;;
+	}
+table.schedule div.showdescr p {
+	border: 5px solid #aaa;
+	border-color: #d3d3d3 #aaa #a4a4a4 #ddd;
+	padding: 0.6em 1em;
+	background: white;
+	}
+table.schedule td.schedshow.hilite {
+	/* 'hilite' is dynamically appended to applicable blocks' classname  
+		when the user selects a show category */
+	background: #fc8;
+	}
+table.schedule td.schedshow a {
+	text-decoration: none;
+	color: #600;
+	}
+table.schedule td.schedshow a:hover {
+	color: #f00;
+	}
+table.schedule span.showcat {
+	display: none;
+	}
+
+#InfoBox {
+	display: none;
+	position: absolute;
+	z-index: 110;
+	width: 345px;
+	color: #000;
+	text-align: left;
+	font-size: 12px;
+	top: 0;
+	left: 0;
+	}
+#InfoBox.s {
+	width: 245px;
+	}
+#InfoBox-top {
+	height: 29px;
+	overflow: hidden;
+	background: transparent url(/img/bg-top.png) no-repeat;
+	}
+#InfoBox-mid {
+	zoom: 1;
+	background-image: url(/img/bg-mid.png);
+	}
+#InfoBox-mid .infoBoxContent {
+	margin: 0 16px;
+	background: #fff;
+	}
+#InfoBox-bot {
+	height: 31px;
+	overflow: hidden;
+	background: transparent url(/img/bg-bot.png) no-repeat;
+	}
+#InfoBox.s #InfoBox-top {
+	background: transparent url(/img/bg-top-s.png) no-repeat;
+	}
+#InfoBox.s #InfoBox-mid {
+	background-image: url(/img/bg-mid-s.png);
+	}
+#InfoBox.s #InfoBox-bot {
+	background: transparent url(/img/bg-bot-s.png) no-repeat;
+	}
+
+#InfoBox-arrow {
+	display: block;
+	position: absolute;
+	top: 120px;
+	background: transparent url(/img/arrows.png) no-repeat;
+	width: 95px;
+	height: 204px;
+	}
+#InfoBox .ne {
+	clip: rect(136px 95px 204px 47px);
+	left: 282px;
+	}
+#InfoBox .nw {
+	clip: rect(136px 48px 204px 0);
+	left: -32px;
+	}
+#InfoBox .nse {
+	clip: rect(0 95px 68px 47px);
+	left: 282px;
+	}
+#InfoBox .nsw {
+	clip: rect(0 48px 68px 0);
+	left: -32px;
+	}
+#InfoBox .se {
+	clip: rect(68px 95px 136px 47px);
+	left: 282px;
+	}
+#InfoBox .sw {
+	clip: rect(68px 48px 136px 0);
+	left: -32px;
+	}
+#InfoBox.s .ne,
+#InfoBox.s .nse,
+#InfoBox.s .se {
+	left: 182px;
+	}
+
+#InfoBox-mid .infoBoxShow {
+	padding-bottom: 0.5em;
+	min-height: 4em;
+	}
+#InfoBox-mid .infoBoxShow h1 {
+	position: relative;
+	margin: 0 -1px;
+	top: -12px;
+	font-size: 1.08em;
+	font-weight: bold;
+	padding: 0 1em 0.5em;
+	/*background: #c0c0c0;*/
+	background: #660000;
+	color: white;
+	}
+#InfoBox-mid .infoBoxShow p {
+	margin-top: 0.6em;
+	padding: 0 1em 0;
+	}
+#InfoBox-mid .infoBoxShow p.first {
+	margin-top: 0;
+	}
+#InfoBox-mid p.imgs {
+	float: right;
+	margin: 0;
+	padding-left: 0;
+	}
+#InfoBox-mid p.imgs img {
+	border: 1px solid #ccc;
+	margin-left: 0.3em;
+	}
+#InfoBox-mid p.clear {
+	clear: both;
+	line-height: 0;
+	margin: 0;
+	}
+
+* html.lte7 .transp {
+	behavior: url(/css/png.htc);
+	}
+
+table.pltab {
+	border-collapse: collapse;
+	}
+tr.od td,
+div.f2row.od {
+	background-color: #F2F5F5;
+	}
+table.noart tr.od td {
+	background-color: transparent;
+	}
+div.f2row {
+	padding: 0.2em 0.3em 0.4em;
+	min-height: 32px;
+	}
+div.buy div.f2row {
+	min-height: 34px;
+	}
+div.withart,
+table.withart {
+	margin-bottom: 75px;
+	}
+div.withart div.f2row {
+	min-height: 42px;
+	}
+html.ie6 div.buy div.f2row {
+	height: 10px;
+	}
+html.ie6 div.withart div.f2row {
+	height: 42px;
+	}
+
+html.ie6 div.f2row {
+	height: 1%;
+	}
+
+table.pltab td.buyit,
+div.f2row div.buyit {
+	padding: 0.3em 0.3em 0.3em 0.4em;
+	}
+div.f2row div.buyit {
+	float: right;
+	}
+table.pltab td.buyit a,
+div.f2row div.buyit a {
+	background-image: url("/img/buyit.png");
+	background-repeat: no-repeat;
+	display: block;
+	width: 28px;
+	height: 28px;
+	}
+table.pltab td.buyit a:hover,
+div.f2row div.buyit a:hover {
+	background-image: url("/img/buyit-h.png");
+	background-color: transparent;
+	}
+
+div.art {
+	position: relative;
+	min-height: 37px;
+	padding: 0.3em;
+	margin: 0 0.4em 0 0;
+	}
+#thisart {
+	z-index: 20;
+	}
+div.f2row div.art {
+	float: left;
+	}
+div.art img,
+div.art div.noart {
+	width: 35px;
+	height: auto;
+	border: 1px solid #ddd;
+	}
+div.art div.noart {
+	position: relative;
+	height: 35px;
+	}
+
+#bigart {
+	z-index: 10;
+	border: 4px solid #ddd;
+	margin: 0px;
+	width: auto;
+	}
+#artplay {
+	z-index: 15;
+	border: none;
+	margin: 8px;
+	width: auto;
+	}
+#thisart img.artleft,
+img.artleft {
+	position: absolute;
+	top: 0;
+	right: 0;
+	}
+#thisart img.artright,
+img.artright {
+	position: absolute;
+	top: 0;
+	left: 0;
+	}
+#thisart img.artfloat,
+img.artfloat {
+	position: relative;
+	float: left;
+	top: auto;
+	}
+#bigart.artfloat {
+	border-width: 6px;
+	}
+#artplay.artfloat {
+	margin-left: -34px;
+	}
+
+div.f2row div.nfo {
+	padding 0.25em 0 0.5em;
+	min-height: 30px;
+	}
+div.f2row div.nfo p.st {
+	font-size: 83%;
+	color: #666;
+	}
+div.f2row div.nfo span.aw {
+	font-weight: bold;
+	}
+div.f2row div.nfo span.sn {
+	}
+div.f2row div.nfo span.sn_cp {
+	}
+div.f2row div.nfo span.dn {
+	font-style: italic;
+	}
+div.f2row div.nfo span.df {
+	}
+div.f2row div.nfo span.de {
+	font-size: 83%;
+	text-transform: uppercase;
+	}
+div.f2row div.nfo span.ld {
+	}
+div.f2row div.nfo span.fg {
+	font-size: 83%;
+	text-transform: uppercase;
+	font-weight: bold;
+	}
+div.f2row div.nfo span.so {
+	}
+
+hr.clearer {
+	clear: both;
+	visibility: hidden;
+	}
+
+#chatpanel {
+	float: right;
+	clear: right;
+	border: 1px solid #600;
+	min-width: 16.5em;
+	max-width: 20em;
+	font-size: 100%;
+	font-family: Calibri, Tahoma, Verdana, "DejaVu Sans", "Lucida Sans Unicode", "Lucida Grande", "Lucida Sans", "Arial Unicode MS", Arial, sans-serif;
+	line-height: 1.2em;
+	color: black;
+	background-color: white;
+	position: relative;
+	z-index: 25;
+	}
+
+html.lte7 #chatpanel {
+	width: 18em;
+	}
+#all_msgs.all_msgs {
+	margin: 0;
+	padding: 0;
+	background-color: transparent;
+	max-height: 120em;
+	overflow-x: hidden;
+	overflow-y: auto;
+	}
+#chatpanel div {
+	border-top: 1px solid #ccc;
+	padding: 0.25em 0.5em;
+	background-color: transparent;
+	}
+#chatpanel p,
+#chatpanel div {
+	word-wrap: break-word;
+	}
+#chatpanel div:first-child {
+	border-top: none;
+	}
+#chatpanel div.head {
+	background-color: #e7e7e7;
+	font-weight: bold;
+	}
+#chatpanel div.nfo {
+	}
+#chatpanel div.od {
+	background-color: #f2f5f5;
+	}
+$chatpanel p.err {
+	color: #900;
+	}
+#chatpanel div.form textarea {
+	width: 97%;
+	height: 2.4em;
+	margin-top: 3px;
+	border: 1px solid #600;
+	font: inherit;
+	line-height: 1.15em;
+	}
+#chatpanel div.form input {
+	font-size: 85%;
+	margin-top: 3px;
+	}
+#chatpanel input.text {
+	border: 1px solid #600;
+	}
+#chatpanel #logonname {
+	width: 14em;
+	}
+#chatpanel span.msg_name {
+	font-style: italic;
+	}
+#chatpanel span.msg_time {
+	color: #666;
+	}
+#chatpanel span.chaterror {
+	color: #633;
+	}
+#chat_logon {
+	border: 1px solid #600;
+	padding: 0.5em;
+	}
+#chat table {
+	border-spacing: 0;
+	}
+#chat_logon form {
+	display block;
+	float: left;
+	margin: 0.4em 1em 0.6em 0;
+	}
+html.ie6 #cl_left {
+	width: 340px;
+	}
+#chat_logon p {
+	color: #666;
+	font-family: Calibri, Tahoma, Verdana, "DejaVu Sans", "Lucida Sans Unicode", "Lucida Grande", "Lucida Sans", "Arial Unicode MS", Arial, sans-serif;
+	font-size: 110%;
+	line-height: 1.2em;
+	}
+#chat_logon p.lead {
+	margin-top: 0.5em;
+	}
+#chat_logon p.err {
+	color: #900;
+	font-weight: bold;
+	}
+
+div.document,
+div.document * {
+	font-family: Arial, "Helvetica Neue", Helvetica, "DejaVu Sans", sans-serif;
+	background-color: transparent;
+	color: #444;
+	}
+div.document {
+	font-size: 116.7%;
+	line-height: 1.3em;
+	}
+div.document h1 {
+	color: #600;
+	font-weight: normal;
+	font-size: 200%;
+	margin: 0.25em 0 0;
+	}
+div.document h2 {
+	color: #600;
+	font-weight: normal;
+	font-size: 133%;
+	margin: 1em 0 0;
+	}
+div.document h3 {
+	color: #600;
+	font-weight: bold;
+	font-size: 112%;
+	margin: 1em 0 0;
+	}
+div.document p {
+	margin: 1em 0 0;
+	}
+div.document ul {
+	margin: 0 -2em 0 1em;
+	}
+div.document ul li {
+	text-indent: -1em;
+	margin: 0.4em 0 0 1em;
+	}
+
+#chat-start {
+	font-size: 125%;
+	font-weight: bold;
+	padding: 4px 0 12px;
+	}
+#chat-start img {
+	margin-bottom: -6px;
+	}
+
+div.fb-like {
+	margin: 0.2em 0;
+	}
